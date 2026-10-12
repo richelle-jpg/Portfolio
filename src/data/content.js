@@ -3,11 +3,11 @@ const base = import.meta.env.BASE_URL;
 
 export const profile = {
   name: 'Richelle Cancino',
-  title: 'QA Automation Engineer',
+  title: 'QA Automation Engineer · Web Developer',
   location: 'Bugallon, Pangasinan, Philippines',
   availability: 'Available for immediate hire',
   intro:
-    'QA Automation Engineer experienced in building and maintaining Playwright (JavaScript) end-to-end regression suites across multiple projects, plus a centralized Laravel-based platform for test execution history, analytics, and email reporting. Seeking a QA automation role with an international or remote team.',
+    'QA Automation Engineer experienced in building and maintaining Playwright (JavaScript) end-to-end regression suites across multiple projects, plus a centralized Laravel-based platform for test execution history, analytics, and email reporting. I also build web applications with PHP, Laravel, HTML, CSS, and JavaScript. Seeking a QA automation or web development role with an international or remote team.',
   email: 'Richellecancino8@gmail.com',
   github: 'https://github.com/richelle-jpg',
   linkedin: 'https://linkedin.com/in/richelle-cancino-01542135a',
@@ -17,7 +17,15 @@ export const profile = {
 export const skills = [
   { group: 'Test Automation', items: ['Playwright', 'JavaScript', 'Node.js', 'End-to-end scripting', 'Automation frameworks'] },
   { group: 'QA & Testing', items: ['Regression', 'Functional', 'Smoke', 'Sanity', 'UI testing', 'API testing', 'Test case design', 'Test plans', 'Bug reporting'] },
-  { group: 'Development', items: ['PHP', 'Laravel', 'HTML/CSS', 'REST API', 'SQL', 'MySQL'] },
+  {
+    group: 'Web Development',
+    sub: [
+      { label: 'Front-End', items: ['HTML', 'CSS', 'JavaScript'] },
+      { label: 'Back-End', items: ['Laravel', 'PHP'] },
+      { label: 'Database', items: ['MySQL'] },
+    ],
+  },
+  { group: 'Also Used (Academic)', items: ['Java', 'Android Studio', 'Firebase'] },
   { group: 'Tools & Process', items: ['Jira', 'Git/GitHub', 'Postman', 'XAMPP', 'VS Code', 'Agile/Scrum', 'CI/CD concepts'] },
 ];
 
@@ -61,4 +69,6 @@ export const projects = [
   { name: 'DRIMS Regression Automation', tag: 'Professional', text: 'Playwright regression suites with reusable test scripts for a drilling/mining operations management system.', tech: ['Playwright', 'JavaScript'], href: '#case-study', label: 'See how it fits' },
   { name: 'PeopleCore (HRIS) Regression Automation', tag: 'Professional', text: 'Playwright regression suites covering the Admin and Employee portals.', tech: ['Playwright', 'JavaScript'], href: '#code', label: 'See code samples' },
   { name: 'Online Car Buying (CarDeal)', tag: 'Capstone, 2024–2025', text: 'Multi-user platform (Admin, Buyer, Agent) with vehicle listings, inquiry management, and authentication. My role: Project Manager / Developer.', tech: ['HTML', 'CSS', 'JavaScript', 'PHP Laravel'], href: profile.github, label: 'GitHub profile' },
+  { name: 'FlashNews', tag: 'Academic, 2024', text: 'Mobile news app with real-time updates and personalized push notifications. My role: Full Stack Web Developer.', tech: ['HTML', 'CSS', 'JavaScript', 'PHP Laravel'], href: profile.github, label: 'GitHub profile' },
+  { name: 'WnR (Write n Read)', tag: 'Academic, 2024', text: 'Digital platform for writers and readers with story sharing and content management. My role: Front-End Developer.', tech: ['HTML', 'CSS', 'JavaScript', 'Laravel'], href: profile.github, label: 'GitHub profile' },
 ];

@@ -36,3 +36,27 @@ h1{font-size:clamp(2.2rem,6vw,3.6rem);margin:.2em 0 0}.hero{padding-top:110px;pa
 .photo-hint{display:block;margin-top:10px;font-size:.8rem}
 @media(max-width:760px){.hero-grid{grid-template-columns:1fr}.photo{order:-1}.photo-inner{width:200px}}
 @media(prefers-reduced-motion:reduce){.photo-inner{transition:none}}
+
+/* Motion: subtle scroll reveal, staggered cards, animated flow */
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes glow{0%{box-shadow:0 0 0 0 transparent}40%{border-color:var(--accent);box-shadow:0 0 0 4px rgba(34,211,238,.22)}100%{box-shadow:0 0 0 0 transparent}}
+.reveal:not(.in) :is(.section-title,.lead,.card,.timeline li,.flow li,.actions,.code){opacity:0}
+.reveal.in :is(.section-title,.lead,.card,.timeline li,.actions,.code){animation:rise .6s ease backwards}
+.reveal.in :is(.card,.timeline li):nth-child(2){animation-delay:.08s}
+.reveal.in :is(.card,.timeline li):nth-child(3){animation-delay:.16s}
+.reveal.in :is(.card,.timeline li):nth-child(4){animation-delay:.24s}
+.reveal.in :is(.card,.timeline li):nth-child(5){animation-delay:.32s}
+.reveal.in .flow li{animation:rise .5s ease backwards,glow .9s ease backwards}
+.reveal.in .flow li:nth-child(1){animation-delay:.1s,.5s}
+.reveal.in .flow li:nth-child(2){animation-delay:.5s,.9s}
+.reveal.in .flow li:nth-child(3){animation-delay:.9s,1.3s}
+.reveal.in .flow li:nth-child(4){animation-delay:1.3s,1.7s}
+.hero-grid>div>*{animation:rise .7s ease backwards}
+.hero-grid>div>:nth-child(2){animation-delay:.08s}.hero-grid>div>:nth-child(3){animation-delay:.16s}
+.hero-grid>div>:nth-child(4){animation-delay:.24s}.hero-grid>div>:nth-child(5){animation-delay:.32s}
+.hero-grid>div>:nth-child(6){animation-delay:.4s}.photo{animation:rise .8s .2s ease backwards}
+.card{transition:transform .2s,border-color .2s}.card:hover{transform:translateY(-3px);border-color:var(--accent)}
+.btn{transition:transform .15s,filter .15s}.btn:hover{transform:translateY(-1px)}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.reveal:not(.in) :is(.section-title,.lead,.card,.timeline li,.flow li,.actions,.code){opacity:1}}
+.sub h4{margin:.9em 0 .2em;font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.sub .chips{margin:.3em 0}

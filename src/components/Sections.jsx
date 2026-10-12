@@ -1,5 +1,6 @@
 import { Download, Github, Linkedin, Mail } from 'lucide-react';
 import ProfilePhoto from './ProfilePhoto.jsx';
+import useReveal from '../hooks/useReveal.js';
 import { profile, skills, experience, education, projects } from '../data/content.js';
 
 export function Hero() {
@@ -21,14 +22,27 @@ export function Hero() {
   );
 }
 
-export const Section = ({ id, title, children }) => (
-  <section id={id} className="container section"><h2 className="section-title">{title}</h2>{children}</section>
-);
+export const Section = ({ id, title, children }) => {
+  const [ref, visible] = useReveal();
+  return (
+    <section id={id} ref={ref} className={`container section reveal${visible ? ' in' : ''}`}>
+      <h2 className="section-title">{title}</h2>
+      {children}
+    </section>
+  );
+};
 
 export const Skills = () => (
   <Section id="skills" title="Technical Skills">
     <div className="grid">{skills.map((s) => (
-      <div className="card" key={s.group}><h3>{s.group}</h3><ul className="chips">{s.items.map((i) => <li key={i}>{i}</li>)}</ul></div>
+      <div className="card" key={s.group}>
+        <h3>{s.group}</h3>
+        {s.sub
+          ? s.sub.map((g) => (
+              <div className="sub" key={g.label}><h4>{g.label}</h4><ul className="chips">{g.items.map((i) => <li key={i}>{i}</li>)}</ul></div>
+            ))
+          : <ul className="chips">{s.items.map((i) => <li key={i}>{i}</li>)}</ul>}
+      </div>
     ))}</div>
   </Section>
 );
@@ -63,7 +77,7 @@ export const Education = () => (
 
 export const Contact = () => (
   <Section id="contact" title="Contact">
-    <p className="lead">Open to QA Automation and remote entry-level opportunities.</p>
+    <p className="lead">Open to QA Automation, web development, and remote entry-level opportunities.</p>
     <div className="actions">
       <a className="btn primary" href={`mailto:${profile.email}`}><Mail size={18} aria-hidden="true" /> Email</a>
       <a className="btn" href={profile.linkedin} target="_blank" rel="noreferrer"><Linkedin size={18} aria-hidden="true" /> LinkedIn</a>
