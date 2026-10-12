@@ -1,0 +1,6 @@
+node_modules
+dist
+.env
+playwright-sample/node_modules
+playwright-sample/playwright-report
+playwright-sample/test-results
